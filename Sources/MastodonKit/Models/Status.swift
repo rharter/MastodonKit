@@ -50,7 +50,8 @@ public struct Status {
 extension Status {
     init?(from dictionary: JSONDictionary) {
         guard
-            let id = dictionary["id"] as? Int,
+            let idString = (dictionary["id"] as? String),
+            let id = Int(idString),
             let uri = dictionary["uri"] as? String,
             let urlString = dictionary["url"] as? String,
             let url = URL(string: urlString),

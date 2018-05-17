@@ -14,7 +14,8 @@ public struct ClientApplication {
 extension ClientApplication {
     init?(from dictionary: JSONDictionary) {
         guard
-            let id = Int((dictionary["id"] as? String)!),
+            let idString = (dictionary["id"] as? String),
+            let id = Int(idString),
             let redirectURI = dictionary["redirect_uri"] as? String,
             let clientID = dictionary["client_id"] as? String,
             let clientSecret = dictionary["client_secret"] as? String

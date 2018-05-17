@@ -36,7 +36,8 @@ public struct Account {
 extension Account {
     init?(from dictionary: JSONDictionary) {
         guard
-            let id = Int((dictionary["id"] as? String)!),
+            let idString = (dictionary["id"] as? String),
+            let id = Int(idString),
             let username = dictionary["username"] as? String,
             let acct = dictionary["acct"] as? String,
             let displayName = dictionary["display_name"] as? String,
